@@ -1,6 +1,4 @@
 # IndexController
-
-
     @GetMapping("/index2")
     public String doGet(Model model) {
         model.addAttribute("sr", new StudentRequest());
@@ -46,8 +44,7 @@
     }
 
 # index.html 수정
-## StudentRequest 받은 것을 th:object="${sr}" 로 추가 -> Request 이름 변경시 object 내용수정
-## input의 name 대신 th:field="*{Request의 변수명}" 형태로 작성
+## StudentRequest 받은 것을 th:object="${sr}" 로 추가 -> Request 이름 변경시 object 내용수정 <br> input의 name 대신 th:field="*{Request의 변수명}" 형태로 작성
     <form th:object="${sr}" method="post" action="index2">
         이름 <input th:field="*{name}">
         학년 <input th:field="*{grade}">
