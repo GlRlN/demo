@@ -46,7 +46,7 @@
     }
 
 # index.html 수정
-## StudentRequest 받은 것을 th:object="${sr}" 로 추가 -> Request 이름이 바뀌면 object 내용수정
+## StudentRequest 받은 것을 th:object="${sr}" 로 추가 -> Request 이름 변경시 object 내용수정
 ## input의 name 대신 th:field="*{Request의 변수명}" 형태로 작성
     <form th:object="${sr}" method="post" action="index2">
         이름 <input th:field="*{name}">
