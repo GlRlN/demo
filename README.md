@@ -15,7 +15,7 @@
     }
 
 # Student
-## grade 추가 및 Setter 수동 추가
+## grade 추가 ~~및 Setter 수동 추가~~ 버그 고쳤으므로 Setter로 처리
     private String name;
     private int grade;
 
@@ -29,7 +29,7 @@
 
 
 # StudentRequest
-## Getter, Setter, 변수 grade 추가
+## Getter, Setter, 변수 grade 추가 -> 얘네는 수동으로 잡아줘야 가능
     public int grade;
   
     public String getName(){
