@@ -9,9 +9,9 @@ import org.aspectj.lang.annotation.RequiredTypes;
 
 @Entity
 @NoArgsConstructor
-@RequiredArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 public class Student {
     /*
     id | name
@@ -20,13 +20,6 @@ public class Student {
     private String name;
     private int grade;
 
-    public void setName(String name){
-        this.name = name;
-    }
-
-    public void setGrade(int grade){
-        this.grade = grade;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

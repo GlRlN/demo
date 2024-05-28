@@ -7,8 +7,6 @@ import lombok.Setter;
 public class StudentRequest {
     public String name;
     public int grade;
-    public StudentRequest() {
-    }
 
     public String getName(){
         return name;
@@ -23,10 +21,14 @@ public class StudentRequest {
         this.grade = grade;
     }
 
+    public StudentRequest() {
+    }
+
+
     public Student toEntity(){
         Student student = new Student();
-        student.setName(name);
-        student.setGrade(grade);
+        student.setName(this.name);
+        student.setGrade(this.grade);
         return student;
     }
 }
