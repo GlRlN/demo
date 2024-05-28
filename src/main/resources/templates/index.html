@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:object="${sr}" method="post" action="index2">
+        이름 <input th:field="*{name}">
+        학년 <input th:field="*{grade}">
+        <button>전달</button>
+    </form>
+</body>
+</html>
