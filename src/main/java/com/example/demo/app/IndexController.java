@@ -40,8 +40,12 @@ public class IndexController {
 
     @PostMapping("/index2")
     public String doPost(Model model, @ModelAttribute("sr") StudentRequest sr) {
-        studentService.saveStudent(sr);
-        model.addAttribute("name", sr.name);
+        if(sr.name==null){
+            System.out.println("sr is null");
+        }else {
+            studentService.saveStudent(sr);
+            model.addAttribute("name", sr.name);
+        }
         return "output.html";
     }
 }

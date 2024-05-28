@@ -1,0 +1,17 @@
+<html
+        xmlns:th="http://www.thymeleaf.org"
+        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="store : ${stores}">
+        <div th:text="${store.index}" style="display: inline"></div>
+        <div th:text="${store.name}" style="display: inline"></div>
+        <div th:text="${store.owner}" style="display: inline"></div>
+        <div th:text="${store.place}" style="display: inline"></div>
+    </div>
+</body>
+</html>

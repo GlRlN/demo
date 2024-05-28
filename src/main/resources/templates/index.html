@@ -8,10 +8,17 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:object="${sr}" method="post" action="index2">
-        이름 <input th:field="*{name}">
-        학년 <input th:field="*{grade}">
-        <button>전달</button>
+    <form th:object="${sr}" method="post" action="index2" style="width: 180px; height:120px; margin: 200px 200px; border:1px solid black">
+        이름 <input th:field="*{name}"> <br>
+        학년 <input th:field="*{grade}"> <br>
+        <button>추가</button>
+    </form>
+    <form method="post" action="index2" style="width: 180px; height:160px; margin: 200px 200px; border:1px solid black">
+        이름 <input > <br>
+        아이디 <input > <br>
+        비밀번호 <input > <br>
+        <button>추가</button>
+<!--        th:object="${accountRequest}" -->
     </form>
 </body>
 </html>
