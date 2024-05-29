@@ -1,5 +1,6 @@
 package com.example.demo.domain.service;
 
+import com.example.demo.domain.model.dto.StoreRequest;
 import com.example.demo.domain.model.entity.Store;
 import com.example.demo.domain.repository.StoreRepository;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,9 @@ public class StoreService {
 
     public List<Store> findAll() {
         return storeRepository.findAll();
+    }
+
+    public void save(StoreRequest storeRequest) {
+        storeRepository.save(storeRequest.toEntity());
     }
 }

@@ -15,11 +15,9 @@ import java.util.List;
 @Controller
 public class AccountController {
     private AccountService accountService;
-    private StoreService storeService;
 
-    public AccountController(AccountService accountService, StoreService storeService) {
+    public AccountController(AccountService accountService) {
         this.accountService = accountService;
-        this.storeService = storeService;
     }
 
 
@@ -36,12 +34,5 @@ public class AccountController {
         System.out.println(accRequest.getName());
         accountService.save(accRequest);
         return "accountOutput.html";
-    }
-
-    @GetMapping("/storeList")
-    public String getStoreList(Model model) {
-        List<Store> stores = storeService.findAll();
-        model.addAttribute("stores", stores);
-        return "storeList.html";
     }
 }
