@@ -8,8 +8,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class StoreController {
@@ -20,8 +22,10 @@ public class StoreController {
     }
 
     @GetMapping("/storeInput")
-    public String storeInput(Model model) {
+    public String storeInput(Model model, @RequestParam Map<String, Object> params) {
         model.addAttribute("store", new StoreRequest());
+        model.addAttribute("params",params);
+
         return "storeInput.html";
     }
 
