@@ -12,9 +12,16 @@
     <span th:text="${account.id}"></span>
     <span th:text="${account.password}"></span>
     <span th:text="${account.name}"></span>
+    <button th:onclick="'update('+${account.idx}+')'">수정</button>
 </div>
-<form>
-    idx : <input> <button>삭제</button>
+<form method="post" th:object="${accountReq}" action="accountList">
+    idx : <input th:field="*{idx}">
+    <button>삭제</button>
 </form>
+<script>
+    function update(pk) {
+        location.href = "/accountUpdate?idx="+pk;
+    }
+</script>
 </body>
 </html>

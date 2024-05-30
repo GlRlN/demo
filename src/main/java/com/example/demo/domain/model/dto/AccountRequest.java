@@ -5,32 +5,23 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@Setter
 public class AccountRequest {
     private Long idx;
 
-    @Setter
     private String id;
 
-    @Setter
     private String password;
 
-    @Setter
     private String name;
 
     public Account toEntity(){
         Account account = new Account();
+        account.setIdx(this.idx);
         account.setId(this.id);
         account.setPassword(this.password);
         account.setName(this.name);
         return account;
     }
 
-    public Account toEntity(Long idx, String id, String password, String name){
-        Account account = new Account();
-        account.setIdx(idx);
-        account.setId(id);
-        account.setPassword(password);
-        account.setName(name);
-        return account;
-    }
 }

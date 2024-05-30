@@ -46,4 +46,5 @@ public class StoreController {
         storeService.deleteByIdx(storeRequest);
         return "redirect:/storeList";
     }
+
 }
