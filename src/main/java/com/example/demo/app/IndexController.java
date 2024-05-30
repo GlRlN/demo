@@ -1,12 +1,18 @@
 package com.example.demo.app;
 
 import com.example.demo.domain.model.dto.StudentRequest;
+import com.example.demo.domain.model.entity.Store;
+import com.example.demo.domain.model.entity.Student;
 import com.example.demo.domain.repository.StudentRepository;
 import com.example.demo.domain.service.StudentService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 
 @Controller
 public class IndexController {
@@ -40,13 +46,27 @@ public class IndexController {
 
     @PostMapping("/index2")
     public String doPost(Model model, @ModelAttribute("sr") StudentRequest sr) {
-        if(sr.name==null){
+        if (sr.name == null) {
             System.out.println("sr is null");
-        }else {
+        } else {
             studentService.saveStudent(sr);
             model.addAttribute("name", sr.name);
         }
         return "output.html";
+    }
+
+    @GetMapping("/student")
+    public String getStudents(Model model, @RequestParam Map<String, Object> params) {
+        List<Student> students = studentRepository.findAll();
+
+        if (params.get("grade") != null) {
+            int grade = Integer.parseInt(params.get("grade").toString());
+
+            students = studentRepository.findByGrade(grade);
+        }
+
+        model.addAttribute("students", students);
+        return "student.html";
     }
 }
 //, method = RequestMethod.GET
