@@ -19,6 +19,10 @@ public class StoreService {
         return storeRepository.findAll();
     }
 
+    public List<Store> findByName(String name) {
+        return storeRepository.findByName(name);
+    }
+
     public void save(StoreRequest storeRequest) {
         storeRepository.save(storeRequest.toEntity());
     }
