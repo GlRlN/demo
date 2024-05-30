@@ -11,7 +11,7 @@ import lombok.*;
 public class Store {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long index;
+    private Long idx;
 
     private String name;
     private String owner;

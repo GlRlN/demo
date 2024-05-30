@@ -7,6 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class StoreRequest {
+    private int idx;
     private String name;
     private String owner;
     private String place;

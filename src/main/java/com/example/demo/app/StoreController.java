@@ -8,14 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
-import java.util.Map;
 
 @Controller
 public class StoreController {
-    private StoreService storeService;
+    private final StoreService storeService;
 
     public StoreController(StoreService storeService) {
         this.storeService = storeService;
@@ -29,7 +27,7 @@ public class StoreController {
     }
 
     @PostMapping("/storeInput")
-    public String storePost(Model model,@ModelAttribute("store") StoreRequest store) {
+    public String storePost(Model model, @ModelAttribute("store") StoreRequest store) {
         storeService.save(store);
         return "redirect:/storeList";
     }
@@ -37,7 +35,15 @@ public class StoreController {
     @GetMapping("/storeList")
     public String getStoreList(Model model) {
         List<Store> stores = storeService.findAll();
+        model.addAttribute("storeRequest", new StoreRequest());
         model.addAttribute("stores", stores);
         return "storeList.html";
+    }
+
+    @PostMapping("/storeList")
+    public String postStoreList(Model model,
+           @ModelAttribute("storeRequest") StoreRequest storeRequest) {
+        storeService.deleteByIdx(storeRequest);
+        return "redirect:/storeList";
     }
 }
