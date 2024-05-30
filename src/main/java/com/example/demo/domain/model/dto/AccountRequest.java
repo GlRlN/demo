@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 public class AccountRequest {
-    private Long index;
+    private Long idx;
 
     @Setter
     private String id;
@@ -25,9 +25,9 @@ public class AccountRequest {
         return account;
     }
 
-    public Account toEntity(Long index, String id, String password, String name){
+    public Account toEntity(Long idx, String id, String password, String name){
         Account account = new Account();
-        account.setIndex(index);
+        account.setIdx(idx);
         account.setId(id);
         account.setPassword(password);
         account.setName(name);

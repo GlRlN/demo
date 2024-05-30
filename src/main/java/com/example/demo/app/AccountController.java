@@ -1,6 +1,7 @@
 package com.example.demo.app;
 
 import com.example.demo.domain.model.dto.AccountRequest;
+import com.example.demo.domain.model.entity.Account;
 import com.example.demo.domain.model.entity.Store;
 import com.example.demo.domain.service.AccountService;
 import com.example.demo.domain.service.StoreService;
@@ -31,10 +32,14 @@ public class AccountController {
 
     @PostMapping("/account")
     public String postAccount(Model model, @ModelAttribute("accRequest") AccountRequest accRequest) {
-        System.out.println(accRequest.getId());
-        System.out.println(accRequest.getPassword());
-        System.out.println(accRequest.getName());
         accountService.save(accRequest);
+        return "redirect:/accountList";
+    }
+
+    @GetMapping("/accountList")
+    public String getAccountList(Model model) {
+        List<Account> accounts = accountService.findAll();
+        model.addAttribute("accounts", accounts);
         return "accountOutput.html";
     }
 }

@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html
         xmlns:th="http://www.thymeleaf.org"
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 >
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    등록완료
+<div th:each="account : ${accounts}">
+    <span th:text="${account.idx}"></span>
+    <span th:text="${account.id}"></span>
+    <span th:text="${account.password}"></span>
+    <span th:text="${account.name}"></span>
+</div>
+<form>
+    idx : <input>
+</form>
 </body>
 </html>
