@@ -7,7 +7,7 @@
     <title>Title</title>
 </head>
 <body>
-    <form th:object="${accountRequest}">
+    <form th:object="${accountRequest}" method="post">
         pk:<input th:field="${account.idx}">
         id:<input th:field="${account.id}">
         password:<input th:field="${account.password}">

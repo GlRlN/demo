@@ -61,4 +61,10 @@ public class AccountController {
         model.addAttribute("account", account);
         return "accountUpdate.html";
     }
+
+    @PostMapping("/accountUpdate")
+    public String postAccountUpdate(Model model, @ModelAttribute("accountRequest") AccountRequest accRequest){
+        accountService.save(accRequest);
+        return "redirect:/accountList";
+    }
 }
