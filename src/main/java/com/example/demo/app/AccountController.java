@@ -23,7 +23,6 @@ public class AccountController {
         this.accountService = accountService;
     }
 
-
     @GetMapping("/account")
     public String getAccount(Model model) {
         model.addAttribute("accRequest", new AccountRequest());
@@ -63,7 +62,7 @@ public class AccountController {
     }
 
     @PostMapping("/accountUpdate")
-    public String postAccountUpdate(Model model, @ModelAttribute("accountRequest") AccountRequest accRequest){
+    public String postAccountUpdate(Model model, @ModelAttribute("accountRequest") AccountRequest accRequest) {
         accountService.save(accRequest);
         return "redirect:/accountList";
     }
