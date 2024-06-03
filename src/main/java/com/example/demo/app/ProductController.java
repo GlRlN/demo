@@ -34,7 +34,7 @@ public class ProductController {
 
     @PostMapping("productInsert")
     public String postProductInsert(Model model, @ModelAttribute("ProductReq") ProductRequest productReq) {
-        productService.save(productReq);
+        productService.saveImage(productReq, productReq.getImage());
         return "redirect:/productInsert";
     }
 

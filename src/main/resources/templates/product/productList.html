@@ -11,6 +11,7 @@
     id <span th:text="${product.id}"></span>
     | 과자이름: <span th:text="${product.name}"></span>
     | 가격: <span th:text="${product.price}"></span>
+    | 이미지: <img th:if="${product.image} != null" th:src="${product.image}">
     <button th:onclick="'update('+${product.id}+')'">수정</button>
     <button th:onclick="'del('+${product.id}+')'">삭제</button>
 </div>
