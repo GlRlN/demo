@@ -21,4 +21,12 @@ public class SalesService {
     public List<Object[]> findSalesByProcess(int process) {
         return salesRepository.findSalesByProcess(process);
     }
+
+    public Sales findById(int id) {
+        return salesRepository.findById(id).orElse(null);
+    }
+
+    public List<Object[]> findSalesById(long orderId) {
+        return salesRepository.findSalesById(orderId);
+    }
 }

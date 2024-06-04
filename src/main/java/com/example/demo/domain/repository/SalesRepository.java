@@ -12,4 +12,7 @@ public interface SalesRepository extends JpaRepository<Sales, Integer> {
 
     @Query("SELECT s, m.name, c.name, m.stock FROM Sales s JOIN Menu m ON s.menu = m.id JOIN Category c ON s.category = c.id WHERE s.process = 0")
     List<Object[]> findSalesByProcess(@Param("process") int process);
+
+    @Query("SELECT s, m.name, c.name, m.stock FROM Sales s JOIN Menu m ON s.menu = m.id JOIN Category c ON s.category = c.id WHERE s.id = :orderId")
+    List<Object[]> findSalesById(@Param("orderId") long id);
 }

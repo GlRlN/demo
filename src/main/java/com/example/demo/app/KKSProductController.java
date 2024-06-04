@@ -53,8 +53,6 @@ public class KKSProductController {
         model.addAttribute("KKSProduct", kksProduct);
         model.addAttribute("KKSProductRequest", new KKSProductRequest());
 
-        System.out.println("수정페이지 이동");
-
         return "kks_product/productUpdate.html";
     }
 
@@ -101,5 +99,36 @@ public class KKSProductController {
         model.addAttribute("orderRequest", new SalesRequest());
 
         return "kks_product/productOrder.html";
+    }
+
+    @GetMapping("orderDetail")
+    public String getOrderDetail(Model model, @RequestParam Map<String, Object> params) {
+        long ordertID = Long.parseLong(params.get("orderID").toString());
+
+        List<Object[]> productOrder = salesService.findSalesById(ordertID);
+
+        List<Sales> sales = productOrder.stream()
+                .map(objects -> (Sales) objects[0])
+                .collect(Collectors.toList());
+
+        List<String> menuNames = productOrder.stream()
+                .map(objects -> (String) objects[1])
+                .collect(Collectors.toList());
+
+        List<String> categoryNames = productOrder.stream()
+                .map(objects -> (String) objects[2])
+                .collect(Collectors.toList());
+
+        List<Integer> menuStocks = productOrder.stream()
+                .map(objects -> (Integer) objects[3])
+                .collect(Collectors.toList());
+
+        model.addAttribute("menuStock", menuStocks);
+        model.addAttribute("orderList", sales);
+        model.addAttribute("menuName", menuNames);
+        model.addAttribute("categoryName", categoryNames);
+        model.addAttribute("orderRequest", new SalesRequest());
+
+        return "kks_product/orderDetail.html";
     }
 }
