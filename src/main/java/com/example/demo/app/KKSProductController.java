@@ -76,7 +76,6 @@ public class KKSProductController {
 
     @GetMapping("productOrder")
     public String getProductOredr(Model model) {
-
         List<Object[]> productOrder = salesService.findSalesByProcess(0);
 
         List<Sales> sales = productOrder.stream()
@@ -88,13 +87,14 @@ public class KKSProductController {
                 .collect(Collectors.toList());
 
         List<String> categoryNames = productOrder.stream()
-                .map(objects -> (String) objects[1])
+                .map(objects -> (String) objects[2])
                 .collect(Collectors.toList());
 
-        for (Object o : productOrder) {
-            System.out.println(o);
-        }
+        List<Integer> menuStocks = productOrder.stream()
+                .map(objects -> (Integer) objects[3])
+                .collect(Collectors.toList());
 
+        model.addAttribute("menuStock", menuStocks);
         model.addAttribute("orderList", sales);
         model.addAttribute("menuName", menuNames);
         model.addAttribute("categoryName", categoryNames);

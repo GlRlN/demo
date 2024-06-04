@@ -10,7 +10,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-
 @ToString
 public class Sales {
     private Date date;

@@ -6,9 +6,10 @@
 </head>
 <body>
 <div th:each="order : ${orderList}">
-    id <span id="orderID" th:text="${order.id}" th:value="${order.id}"></span>
-    Category <span id="orderCategory" th:text="${categoryName[orderStat.index]}" th:value="${categoryName[orderStat.index]}"></span>
-    Menu <span id="orderMenu" th:text="${menuName[orderStat.index]}" th:value="${menuName[orderStat.index]}"></span>
+    <span id="orderCategory" th:text="${categoryName[orderStat.index]}"
+          th:value="${categoryName[orderStat.index]}"></span>
+    <span id="orderMenu" th:text="${menuName[orderStat.index]}" th:value="${menuName[orderStat.index]}"></span>
+    <span th:if="${menuStock[orderStat.index]} <= 0">매진</span>
 </div>
 </body>
 </html>
