@@ -1,17 +1,18 @@
 <!DOCTYPE html>
-<html
-        xmlns:th="http://www.thymeleaf.org"
->
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <div th:each="product : ${KKSProductList}">
-    id <span th:text="${product.id}"></span>
-    과자이름: <span th:text="${product.name}"></span>
-    가격: <span th:text="${product.price}"></span>
+    id <span id="productID" th:text="${product.id}" th:value="${product.id}"></span>
+    과자이름: <span id="productName" th:text="${product.name}" th:value="${product.name}"></span>
+    가격: <span id="productPrice" th:text="${product.price}" th:value="${product.price}"></span>
+    수량: <span id="productStock" th:text="${product.stock}" th:value="${product.stock}"></span>
     <button th:onclick="|location.href='/kks_ProductUpdate?productID=${product.id}'|">수정</button>
+    <button th:if="${product.stock} > 0" th:onclick="">주문</button>
+    <button th:if="${product.stock} <= 0" disabled>매진</button>
     <button th:onclick="|location.href='/kks_ProductDelete?productID=${product.id}'|">삭제</button>
 </div>
 <div>

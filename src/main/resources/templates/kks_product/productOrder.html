@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="order : ${orderList}">
+    id <span id="orderID" th:text="${order.id}" th:value="${order.id}"></span>
+    Category <span id="orderCategory" th:text="${categoryName[orderStat.index]}" th:value="${categoryName[orderStat.index]}"></span>
+    Menu <span id="orderMenu" th:text="${menuName[orderStat.index]}" th:value="${menuName[orderStat.index]}"></span>
+</div>
+</body>
+</html>
