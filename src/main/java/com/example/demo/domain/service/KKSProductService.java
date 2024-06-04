@@ -1,6 +1,7 @@
 package com.example.demo.domain.service;
 
 import com.example.demo.domain.model.dto.KKSProductRequest;
+import com.example.demo.domain.model.entity.Menu;
 import com.example.demo.domain.model.entity.Product;
 import com.example.demo.domain.repository.KKSProductRepository;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ public class KKSProductService {
         this.kksProductRepository = kksProductRepository;
     }
 
-    public List<Product> findAll() {
+    public List<Menu> findAll() {
         return kksProductRepository.findAll();
     }
 
@@ -23,7 +24,7 @@ public class KKSProductService {
         kksProductRepository.save(kksProductRequest.toEntity());
     }
 
-    public Product findById(Long id) {
+    public Menu findById(Long id) {
         return kksProductRepository.findById(id).orElse(null);
     }
 

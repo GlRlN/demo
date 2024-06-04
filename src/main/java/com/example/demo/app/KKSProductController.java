@@ -1,6 +1,7 @@
 package com.example.demo.app;
 
 import com.example.demo.domain.model.dto.KKSProductRequest;
+import com.example.demo.domain.model.entity.Menu;
 import com.example.demo.domain.model.entity.Product;
 import com.example.demo.domain.service.KKSProductService;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,7 @@ public class KKSProductController {
 
     @GetMapping("kks_product")
     public String getKKSProduct(Model model) {
-        List<Product> kksProducts = KKSProductService.findAll();
+        List<Menu> kksProducts = KKSProductService.findAll();
 
         model.addAttribute("KKSProductList", kksProducts);
         model.addAttribute("KKSProductRequest", new KKSProductRequest());
@@ -42,7 +43,7 @@ public class KKSProductController {
     public String getKKSProductUpdate(Model model, @RequestParam Map<String, Object> params) {
         long productID = Long.parseLong(params.get("productID").toString());
 
-        Product kksProduct = KKSProductService.findById(productID);
+        Menu kksProduct = KKSProductService.findById(productID);
 
         model.addAttribute("KKSProduct", kksProduct);
         model.addAttribute("KKSProductRequest", new KKSProductRequest());
