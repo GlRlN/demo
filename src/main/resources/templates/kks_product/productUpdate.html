@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:object="${KKSProductRequest}" method="post">
+    id : <span th:text="${KKSProduct.id}"><input th:field="${KKSProduct.id}" style="display: none"></span><br>
+    이름 : <input th:field="${KKSProduct.name}"><br>
+    가격 : <input th:field="${KKSProduct.price}"><br>
+    <button>수정</button>
+</form>
+</body>
+</html>

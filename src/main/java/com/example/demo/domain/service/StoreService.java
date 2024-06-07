@@ -23,6 +23,10 @@ public class StoreService {
         return storeRepository.findByName(name);
     }
 
+    public void deleteByIdx(StoreRequest storeRequest) {
+        storeRepository.deleteByIdx(storeRequest.getIdx());
+    }
+
     public void save(StoreRequest storeRequest) {
         storeRepository.save(storeRequest.toEntity());
     }

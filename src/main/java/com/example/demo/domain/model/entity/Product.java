@@ -4,18 +4,17 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-
-public class Account {
-
-    private String id;
-    private String password;
+public class Product {
     private String name;
+    private int price;
+    private int quantity;
+    private String image;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idx;
+    private Long id;
 }

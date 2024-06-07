@@ -8,10 +8,14 @@
 </head>
 <body>
 <div th:each="store : ${stores}">
-    <div th:text="${store.index}" style="display: inline"></div>
+    <div th:text="${store.idx}" style="display: inline"></div>
     <div th:text="${store.name}" style="display: inline"></div>
     <div th:text="${store.owner}" style="display: inline"></div>
     <div th:text="${store.place}" style="display: inline"></div>
 </div>
+<form th:object="${storeRequest}" method="post">
+    idx : <input th:field="*{idx}">
+    <button>삭제</button>
+</form>
 </body>
 </html>

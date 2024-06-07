@@ -23,6 +23,10 @@ public class StudentService {
         return studentRepository.findByName(name);
     }
 
+    public List<Student> getAllStudentsByGrade(int grade) {
+        return studentRepository.findByGrade(grade);
+    }
+
     public void saveStudent(StudentRequest studentRequest) {
         studentRepository.save(studentRequest.toEntity());
     }

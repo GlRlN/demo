@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:object="${accountRequest}" method="post">
+        pk:<input th:field="${account.idx}">
+        id:<input th:field="${account.id}">
+        password:<input th:field="${account.password}">
+        name:<input th:field="${account.name}">
+        <button>수정</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html
+        xmlns:th="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:object="${productReq}" method="post" enctype="multipart/form-data">
+        과자명 : <input th:field="*{name}">
+        가격 : <input th:field="*{price}">
+        개수 : <input th:field="*{quantity}">
+        이미지: <input type="file" th:field="*{image}">
+        <button>등록</button>
+    </form>
+    <button onclick="location.href='/productList'">목록보기</button>
+</body>
+</html>

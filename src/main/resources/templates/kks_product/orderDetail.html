@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="order : ${orderList}">
+    종류 : <span id="orderCategory" th:text="${categoryName[orderStat.index]}"
+               th:value="${categoryName[orderStat.index]}"></span>
+    <br>
+    수량 : <span id="orderQuantity" th:text="${order.quantity}" th:value="${order.quantity}"></span>
+    <br>
+    메뉴 : <span id="orderMenu" th:text="${menuName[orderStat.index]}" th:value="${menuName[orderStat.index]}"></span>
+    <br>
+    총 가격 : <span id="orderTotalPrice" th:text="${order.quantity * order.price}"
+                 th:value="${order.quantity * order.price}"></span>
+    <br>
+</div>
+</body>
+</html>
